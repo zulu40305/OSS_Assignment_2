@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+  <style>
+    .func-btn-add {
+      color: white;
+      background-color: blue;
+    }
+    
+    .func-btn-delete {
+      color: white;
+      background-color: green;
+    }
+  </style>
+
+  <script>
+    window.onload() = function() {
+      input_element = document.getElementById('form-input');
+      list_element = document.getElementById('fruits');
+    }
+
+    function submitInput() {
+      fruits = input_element.value.split(',');
+
+      for(e of fruits) {
+        if (e.trim().length == 0) continue;
+        new_element = document.createElement("li");
+        new_element.textContent = e;
+        list_element.appendChild(new_element);
+      }
+
+      input_element.value = "";
+    }
+
+    function clearInput() {
+      list_element.innerHTML = "";
+    }
+  </script>
+<body>
+  <h1>Dynamic Web page</h1>
+  <div>
+    <input id="form-input">
+    <button onclick="submitInput()" class="func-btn-add">Add</button>
+    <button onclick="clearInput()" class="func-btn-delete">Delete</button>
+  </div>
+  <ul id="fruits"></ul>
+</body>
+</html>
